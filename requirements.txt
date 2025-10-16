@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+openpyxl
+requests
+python-dotenv
+grpcio
+grpcio-tools
+protobuf
+pandas
+openpyxl
