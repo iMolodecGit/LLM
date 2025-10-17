@@ -54,6 +54,16 @@ class LLMServiceServicer(warehouse_pb2_grpc.LLMServiceServicer):
         answer = ask_llm(prompt)
         return warehouse_pb2.AskResponse(answer=answer)
 
+    def AskScientist(self, request, context):
+            prompt = f"""
+    Ты телеграм бот. К тебе приходят люди с разными вопросами.
+    Пользователь спрашивает: "{request.question}"
+
+    Ответь на естественном языке так чтоб поддержать беседу
+    """
+            answer = ask_llm(prompt)
+            return warehouse_pb2.AskResponse(answer=answer)
+
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

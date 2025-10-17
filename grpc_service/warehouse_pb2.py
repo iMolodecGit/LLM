@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cgrpc_service/warehouse.proto\x12\x03llm\"\x1e\n\nAskRequest\x12\x10\n\x08question\x18\x01 \x01(\t\"\x1d\n\x0b\x41skResponse\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t26\n\nLLMService\x12(\n\x03\x41sk\x12\x0f.llm.AskRequest\x1a\x10.llm.AskResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cgrpc_service/warehouse.proto\x12\x03llm\"\x1e\n\nAskRequest\x12\x10\n\x08question\x18\x01 \x01(\t\"\x1d\n\x0b\x41skResponse\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t2i\n\nLLMService\x12(\n\x03\x41sk\x12\x0f.llm.AskRequest\x1a\x10.llm.AskResponse\x12\x31\n\x0c\x41skScientist\x12\x0f.llm.AskRequest\x1a\x10.llm.AskResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,5 +36,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ASKRESPONSE']._serialized_start=69
   _globals['_ASKRESPONSE']._serialized_end=98
   _globals['_LLMSERVICE']._serialized_start=100
-  _globals['_LLMSERVICE']._serialized_end=154
+  _globals['_LLMSERVICE']._serialized_end=205
 # @@protoc_insertion_point(module_scope)

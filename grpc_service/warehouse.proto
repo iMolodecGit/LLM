@@ -4,6 +4,7 @@ package llm;
 
 service LLMService {
   rpc Ask(AskRequest) returns (AskResponse);
+  rpc AskScientist(AskRequest) returns (AskResponse);
 }
 
 message AskRequest {

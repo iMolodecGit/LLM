@@ -39,6 +39,11 @@ class LLMServiceStub(object):
                 request_serializer=grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
                 response_deserializer=grpc__service_dot_warehouse__pb2.AskResponse.FromString,
                 _registered_method=True)
+        self.AskScientist = channel.unary_unary(
+                '/llm.LLMService/AskScientist',
+                request_serializer=grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
+                response_deserializer=grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+                _registered_method=True)
 
 
 class LLMServiceServicer(object):
@@ -50,11 +55,22 @@ class LLMServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AskScientist(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LLMServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Ask': grpc.unary_unary_rpc_method_handler(
                     servicer.Ask,
+                    request_deserializer=grpc__service_dot_warehouse__pb2.AskRequest.FromString,
+                    response_serializer=grpc__service_dot_warehouse__pb2.AskResponse.SerializeToString,
+            ),
+            'AskScientist': grpc.unary_unary_rpc_method_handler(
+                    servicer.AskScientist,
                     request_deserializer=grpc__service_dot_warehouse__pb2.AskRequest.FromString,
                     response_serializer=grpc__service_dot_warehouse__pb2.AskResponse.SerializeToString,
             ),
@@ -84,6 +100,33 @@ class LLMService(object):
             request,
             target,
             '/llm.LLMService/Ask',
+            grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
+            grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AskScientist(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/llm.LLMService/AskScientist',
             grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
             grpc__service_dot_warehouse__pb2.AskResponse.FromString,
             options,
