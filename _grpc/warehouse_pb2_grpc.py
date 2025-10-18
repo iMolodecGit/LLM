@@ -3,7 +3,8 @@
 import grpc
 import warnings
 
-from grpc_service import warehouse_pb2 as grpc__service_dot_warehouse__pb2
+# import warehouse_pb2 as warehouse__pb2
+from _grpc import warehouse_pb2 as warehouse__pb2
 
 GRPC_GENERATED_VERSION = '1.75.1'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +19,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in grpc_service/warehouse_pb2_grpc.py depends on'
+        + f' but the generated code in warehouse_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,13 +37,13 @@ class LLMServiceStub(object):
         """
         self.Ask = channel.unary_unary(
                 '/llm.LLMService/Ask',
-                request_serializer=grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
-                response_deserializer=grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+                request_serializer=warehouse__pb2.AskRequest.SerializeToString,
+                response_deserializer=warehouse__pb2.AskResponse.FromString,
                 _registered_method=True)
         self.AskScientist = channel.unary_unary(
                 '/llm.LLMService/AskScientist',
-                request_serializer=grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
-                response_deserializer=grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+                request_serializer=warehouse__pb2.AskRequest.SerializeToString,
+                response_deserializer=warehouse__pb2.AskResponse.FromString,
                 _registered_method=True)
 
 
@@ -66,13 +67,13 @@ def add_LLMServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Ask': grpc.unary_unary_rpc_method_handler(
                     servicer.Ask,
-                    request_deserializer=grpc__service_dot_warehouse__pb2.AskRequest.FromString,
-                    response_serializer=grpc__service_dot_warehouse__pb2.AskResponse.SerializeToString,
+                    request_deserializer=warehouse__pb2.AskRequest.FromString,
+                    response_serializer=warehouse__pb2.AskResponse.SerializeToString,
             ),
             'AskScientist': grpc.unary_unary_rpc_method_handler(
                     servicer.AskScientist,
-                    request_deserializer=grpc__service_dot_warehouse__pb2.AskRequest.FromString,
-                    response_serializer=grpc__service_dot_warehouse__pb2.AskResponse.SerializeToString,
+                    request_deserializer=warehouse__pb2.AskRequest.FromString,
+                    response_serializer=warehouse__pb2.AskResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -100,8 +101,8 @@ class LLMService(object):
             request,
             target,
             '/llm.LLMService/Ask',
-            grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
-            grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+            warehouse__pb2.AskRequest.SerializeToString,
+            warehouse__pb2.AskResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -127,8 +128,8 @@ class LLMService(object):
             request,
             target,
             '/llm.LLMService/AskScientist',
-            grpc__service_dot_warehouse__pb2.AskRequest.SerializeToString,
-            grpc__service_dot_warehouse__pb2.AskResponse.FromString,
+            warehouse__pb2.AskRequest.SerializeToString,
+            warehouse__pb2.AskResponse.FromString,
             options,
             channel_credentials,
             insecure,

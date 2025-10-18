@@ -5,7 +5,7 @@ import requests
 from concurrent import futures
 from dotenv import load_dotenv
 
-from grpc_service import warehouse_pb2, warehouse_pb2_grpc
+from grpc import warehouse_pb2, warehouse_pb2_grpc
 
 load_dotenv()
 
@@ -59,7 +59,9 @@ class LLMServiceServicer(warehouse_pb2_grpc.LLMServiceServicer):
     Ты телеграм бот. К тебе приходят люди с разными вопросами.
     Пользователь спрашивает: "{request.question}"
 
-    Ответь на естественном языке так чтоб поддержать беседу
+
+
+    Ответь так если бы отвечал Дональд Трамп так чтоб поддержать беседу
     """
             answer = ask_llm(prompt)
             return warehouse_pb2.AskResponse(answer=answer)
